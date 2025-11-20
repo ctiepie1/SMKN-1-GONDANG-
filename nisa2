@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEFA SMKN 1 GONDANG - Nganjuk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- VARIABEL WARNA (TEMA UNGU) --- */
+        :root {
+            --primary: #6A1B9A;      /* Ungu Utama */
+            --secondary: #AB47BC;    /* Ungu Terang */
+            --accent: #FFD54F;       /* Kuning Emas */
+            --dark: #333333;
+            --light: #f4f4f4;
+            --white: #ffffff;
+        }
+
+        /* --- RESET DASAR --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 { font-size: 1.5rem; font-weight: 700; }
+        .logo span { font-size: 0.9rem; color: var(--accent); letter-spacing: 1px; }
+
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav a { text-decoration: none; color: var(--white); font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: var(--accent); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(106, 27, 154, 0.8), rgba(106, 27, 154, 0.8)), url('https://source.unsplash.com/1600x900/?school,building');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h2 { font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 20px; }
+        .btn-hero {
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+        .btn-hero:hover { transform: scale(1.05); background-color: #ffca28; }
+
+        /* --- PROFIL SEKOLAH --- */
+        .profile-section {
+            padding: 60px 10%;
+            text-align: center;
+            background-color: var(--white);
+        }
+        .profile-section h3 { color: var(--primary); font-size: 2rem; margin-bottom: 20px; }
+        .profile-section p { max-width: 800px; margin: 0 auto; color: #555; }
+
+        /* --- SECTION JURUSAN / TEFA --- */
+        .tefa-section {
+            padding: 60px 5%;
+            background-color: #f0f0f0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h3 { font-size: 2.5rem; color: var(--primary); }
+        .section-title p { color: #666; }
+
+        /* GRID LAYOUT */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Responsive Grid */
+            gap: 30px;
+        }
+
+        /* KARTU JURUSAN */
+        .card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover { transform: translateY(-10px); }
+
+        .card-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Agar gambar full tanpa gepeng */
+            transition: transform 0.5s;
+        }
+
+        .card:hover .card-image img { transform: scale(1.1); }
+
+        .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--accent);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .card-text { font-size: 0.95rem; color: #444; text-align: justify; }
+
+        /* --- KONTAK --- */
+        .contact-section {
+            padding: 60px 5%;
+            background: var(--primary);
+            color: var(--white);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .contact-box { text-align: center; max-width: 300px; }
+        .contact-box i { font-size: 2rem; margin-bottom: 15px; color: var(--accent); }
+        
+        /* --- FOOTER --- */
+        footer {
+            background-color: #4a148c; /* Ungu lebih gelap */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; }
+            .hero h2 { font-size: 2rem; }
+            .grid-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>SMKN 1 GONDANG</h1>
+            <span>TEACHING FACTORY</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#jurusan">Jurusan & Produk</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Inovasi & Kompetensi</h2>
+        <p>Mewujudkan Generasi Unggul melalui Unit Produksi dan Teaching Factory SMKN 1 Gondang Nganjuk.</p>
+        <a href="#jurusan" class="btn-hero">Lihat Kompetensi Kami</a>
+    </section>
+
+    <section class="profile-section">
+        <h3>Tentang Kami</h3>
+        <p>SMK Negeri 1 Gondang adalah Sekolah Menengah Kejuruan yang berlokasi di Kabupaten Nganjuk, Jawa Timur. Kami berdedikasi untuk mencetak lulusan yang siap kerja dengan keterampilan industri melalui program Teaching Factory (TEFA) yang terintegrasi di setiap jurusan.</p>
+    </section>
+
+    <section id="jurusan" class="tefa-section">
+        <div class="section-title">
+            <h3>Kompetensi Keahlian</h3>
+            <p>Unit produksi dan pembelajaran praktik siswa sesuai standar industri.</p>
+        </div>
+
+        <div class="grid-container">
+            
+            <div class="card">
+                <div class="card-image">
+                    <img src="c:\Users\SMKN 1 GONDANG\Downloads\WhatsApp Image 2025-11-20 at 10.59.47.jpeg" alt="Teknik Komputer Jaringan">
+                </div>
+                <div class="card-content">
+                    <h4 class="card-title">Teknik Komputer Jaringan</h4>
+                    <p class="card-text">
+                        Jurusan yang berfokus pada instalasi, konfigurasi, dan pemeliharaan jaringan komputer dan sistem komputer, meliputi perakitan perangkat keras, pengelolaan perangkat lunak, dan layanan internet. Tujuannya adalah menciptakan komunikasi data yang stabil, aman, dan efisien.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="c:\Users\SMKN 1 GONDANG\Downloads\WhatsApp Image 2025-11-20 at 10.59.48 (1).jpeg" alt="Agribisnis Tanaman Pangan Hultikultura">
+                </div>
+                <div class="card-content">
+                    <h4 class="card-title">Agribisnis Tanaman Pangan</h4>
+                    <p class="card-text">
+                        Sebuah program keahlian yang mempersiapkan siswa untuk menguasai proses bisnis pertanian dari pengadaan sarana produksi, budidaya, pengolahan hasil, hingga pemasaran, khususnya pada komoditas tanaman pangan (padi, jagung, dll.) dan hortikultura (sayuran, buah, tanaman hias).
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="c:\Users\SMKN 1 GONDANG\Downloads\WhatsApp Image 2025-11-20 at 10.59.47 (2).jpeg" alt="Teknik Kendaraan Ringan">
+                </div>
+                <div class="card-content">
+                    <h4 class="card-title">Teknik Kendaraan Ringan</h4>
+                    <p class="card-text">
+                        Sebuah program kejuruan yang berfokus pada pemeliharaan, perbaikan, dan sistem kerja kendaraan roda empat atau mobil. Siswa akan mempelajari berbagai materi teknik otomotif, baik teori maupun praktik, untuk menyiapkan mereka menjadi tenaga terampil di dunia otomotif.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="c:\Users\SMKN 1 GONDANG\Downloads\WhatsApp Image 2025-11-20 at 11.00.45.jpeg" alt="Teknik Sepeda Motor">
+                </div>
+                <div class="card-content">
+                    <h4 class="card-title">Teknik Sepeda Motor</h4>
+                    <p class="card-text">
+                        Keahlian dalam bidang otomotif yang berfokus pada perawatan, perbaikan, dan pemeliharaan sepeda motor, baik sistem konvensional maupun teknologi baru. Lulusannya memiliki keterampilan untuk menjadi mekanik, teknisi, atau bahkan membuka usaha bengkel sepeda motor sendiri.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="c:\Users\SMKN 1 GONDANG\Downloads\WhatsApp Image 2025-11-20 at 10.59.47 (1).jpeg" alt="Agribisnis Pengolahan Hasil Pertanian">
+                </div>
+                <div class="card-content">
+                    <h4 class="card-title">Agribisnis Pengolahan Hasil Pertanian</h4>
+                    <p class="card-text">
+                        Program keahlian yang berfokus pada pengolahan hasil pertanian menjadi produk bernilai tambah. Lulusannya dibekali keterampilan untuk mengolah, mengemas, dan memasarkan produk pertanian, serta dibimbing untuk menjadi wirausahawan atau siap bekerja di industri pangan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="c:\Users\SMKN 1 GONDANG\Downloads\WhatsApp Image 2025-11-20 at 10.59.49.jpeg" alt="Alat Mekanisasi Pertanian">
+                </div>
+                <div class="card-content">
+                    <h4 class="card-title">Alat Mekanisasi Pertanian</h4>
+                    <p class="card-text">
+                        Jurusan yang mempelajari penerapan teknologi, alat, dan mesin pertanian untuk meningkatkan efisiensi, produktivitas, dan kualitas hasil pertanian dari tahap budidaya hingga pascapanen, meliputi pengoperasian, perawatan, perbaikan, hingga pengembangan alsintan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="c:\Users\SMKN 1 GONDANG\Downloads\WhatsApp Image 2025-11-20 at 10.59.48.jpeg" alt="Agribisnis Ternak Unggas">
+                </div>
+                <div class="card-content">
+                    <h4 class="card-title">Agribisnis Ternak Unggas</h4>
+                    <p class="card-text">
+                        Jurusan yang mempelajari mengenai usaha peternakan unggas yang mencakup kompetensi agribisnis ternak unggas pedaging, petelur, pakan ternak, serta pembibitan. Materi meliputi penyiapan kandang, pemberian pakan, penanganan limbah, hingga perencanaan usaha.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="kontak" class="contact-section">
+        <div class="contact-box">
+            <i class="fas fa-map-marker-alt"></i>
+            <h4>Alamat</h4>
+            <p>Jl. Raya Gondang - Lengkong, Desa Campur, Kec. Gondang, Kab. Nganjuk, Jawa Timur</p>
+        </div>
+        <div class="contact-box">
+            <i class="fas fa-phone"></i>
+            <h4>Telepon</h4>
+            <p>(0358) 324806</p>
+        </div>
+        <div class="contact-box">
+            <i class="fas fa-envelope"></i>
+            <h4>Email</h4>
+            <p>info@smkn1gondang.sch.id</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 SMKN 1 Gondang Nganjuk - Teaching Factory.</p>
+    </footer>
+
+</body>
+</html>
