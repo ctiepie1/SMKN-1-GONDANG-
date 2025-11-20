@@ -1,0 +1,143 @@
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --primary-color: #6c44a1; /* Ungu Keren */
+        --accent-color: #dde3ee; /* Putih Lembut */
+        --secondary-color: #43ac7b; /* Hijau Segar */
+        --background-light: #dee7e4; /* Abu Muda */
+        --card-bg: #ffffff;
+    }
+
+    /* Reset & Font Lucu */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif; /* Menggunakan Poppins untuk kesan modern */
+        scroll-behavior: smooth;
+    }
+
+    body {
+        line-height: 1.6;
+        color: #333;
+        background-color: var(--background-light);
+    }
+
+    /* Header & Navigasi */
+    header {
+        background: var(--primary-color);
+        color: white;
+        padding: 1rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo h1 {
+        font-size: 1.6rem;
+        font-weight: 800;
+    }
+
+    .logo p {
+        font-size: 0.9rem;
+        color: var(--accent-color);
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+    }
+
+    nav ul li {
+        margin-left: 25px;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    nav ul li a:hover {
+        background-color: #4c70ba;
+        transform: translateY(-2px); /* Efek imut */
+    }
+
+    .action-btn {
+        display: inline-block;
+        background-color: var(--secondary-color);
+        color: white;
+        padding: 12px 30px;
+        text-decoration: none;
+        border-radius: 30px; /* Lebih bulat, lebih imut */
+        margin-top: 20px;
+        font-weight: 600;
+        transition: background-color 0.3s, transform 0.2s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .action-btn:hover {
+        background-color: #197c4e;
+        transform: scale(1.05); /* Efek lucu membesar */
+    }
+
+    /* Konten Utama */
+    section {
+        padding: 80px 5%;
+        margin-bottom: 30px;
+        background-color: var(--card-bg);
+        border-radius: 15px; /* Sudut melengkung */
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+        max-width: 1200px;
+        margin: 30px auto;
+    }
+
+    h2, h3 {
+        text-align: center;
+        margin-bottom: 50px;
+        color: var(--primary-color);
+        font-weight: 800;
+    }
+
+    /* Hero TEFA */
+    .hero {
+        text-align: center;
+        background: linear-gradient(135deg, #e6f7ff 0%, #ccffcc 100%); /* Gradasi cerah */
+        padding: 120px 5%;
+        border-radius: 20px;
+    }
+
+    .hero p {
+        margin: 20px auto;
+        max-width: 800px;
+        font-size: 1.1rem;
+    }
+
+    /* Bagian Jurusan (Menggunakan Grid Card Imut) */
+    .jurusan-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        padding: 20px 0;
+    }
+
+    .jurusan-card {
+        background: var(--card-bg);
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;
+        border: 2px solid var(--accent-color); /* Border lucu */
+    }
+
+    .jurusan-card:hover {
+        transform: translateY(-10px) rotate(-1deg); /* Efek "Goyangan Imut" */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, *
